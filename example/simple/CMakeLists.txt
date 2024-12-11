@@ -11,7 +11,7 @@ set(AUTOMOC ON)
 set(AUTORCC ON)
 
 # Add the executable
-qt_add_executable(simple
+qt_add_executable(qml-test-recorder-simple
     main.cpp
 )
 
@@ -33,27 +33,27 @@ qt_add_qml_module(simplemodule
 # )
 
 # Link Qt libraries
-target_link_libraries(simple PRIVATE Qt6::Quick)
+target_link_libraries(qml-test-recorder-simple PRIVATE Qt6::Quick)
 
 # Specify the C++ standard
-set_target_properties(simple PROPERTIES
+set_target_properties(qml-test-recorder-simple PROPERTIES
     CXX_STANDARD 17
     CXX_STANDARD_REQUIRED ON
 )
 
 ### QML testing ###
-qt_add_executable(test_simple
+qt_add_executable(qml-test-recorder-test_simple
     test/main.cpp
 )
 
-target_compile_definitions(test_simple PRIVATE QUICK_TEST_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/test")
+target_compile_definitions(qml-test-recorder-test_simple PRIVATE QUICK_TEST_SOURCE_DIR="${CMAKE_CURRENT_SOURCE_DIR}/test")
 
-qt_add_resources(test_simple "qmls"
+qt_add_resources(qml-test-recorder-test_simple "qmls"
     PREFIX "/qmls"
     FILES
     test/tst_Simple.qml)
 
-target_link_libraries(test_simple
+target_link_libraries(qml-test-recorder-test_simple
     PRIVATE
     Qt::Test
     Qt::Quick
