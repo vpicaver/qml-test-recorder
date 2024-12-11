@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
+import QtCore
 import QmlTestRecorder
 
 Window {
@@ -16,9 +17,28 @@ Window {
     y: 100
     visible: true
 
+    onXChanged: windowSettings.setValue("x", x);
+    onYChanged: windowSettings.setValue("y", y);
+    onWidthChanged: windowSettings.setValue("width", width)
+    onHeightChanged: windowSettings.setValue("height", height)
+
     function tryFindObject(testcase, chain) {
         testcase.tryVerify(function() { return ObjectFinder.findObjectByChain(rootItem.parent, chain) !== null }, 1000, `Can't find ${chain}`)
         return ObjectFinder.findObjectByChain(rootItem.parent, chain);
+    }
+
+    Component.onCompleted: {
+        // Restore the window position and size
+        x = windowSettings.value("x", 500);
+        y = windowSettings.value("y", 100);
+        width = windowSettings.value("width", 1000);
+        height = windowSettings.value("height", 800);
+    }
+
+    // Settings object to store window properties
+    Settings {
+        id: windowSettings
+        category: "TestcaseRecorder"
     }
 
     EventFilter {
@@ -38,6 +58,8 @@ Window {
         parent: testcaseWindowId.rootItem
         animationEnabled: true
     }
+
+
 
 //    TestCase {
 //        name: "FieldEditTest"
