@@ -8,6 +8,7 @@ class ObjectFinder : public QObject
 {
     Q_OBJECT
     QML_ELEMENT
+    QML_SINGLETON
 
 public:
     explicit ObjectFinder(QObject *parent = nullptr);

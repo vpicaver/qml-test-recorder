@@ -2,8 +2,7 @@ import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
 import QtQuick.Layouts
-import MapWhere.Test
-import QtTest
+import QmlTestRecorder
 
 Window {
     id: testcaseWindowId
@@ -16,6 +15,11 @@ Window {
     x: 500
     y: 100
     visible: true
+
+    function tryFindObject(testcase, chain) {
+        testcase.tryVerify(function() { return ObjectFinder.findObjectByChain(rootItem.parent, chain) !== null }, 1000, `Can't find ${chain}`)
+        return ObjectFinder.findObjectByChain(rootItem.parent, chain);
+    }
 
     EventFilter {
         id: filterId
@@ -31,7 +35,7 @@ Window {
 
     ClickDebugger {
         id: clickDebuggerId
-        parent: rootItem
+        parent: testcaseWindowId.rootItem
         animationEnabled: true
     }
 

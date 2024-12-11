@@ -46,7 +46,7 @@ QString EventFilter::output() const
         auto objName = chainNameToObjName.value(command.chainName());
 
         if(!objectPrinted.contains(objName)) {
-            stream << QString("var %1 = finder.findObjectByChain(%2, \"%3\")\n")
+            stream << QString("let %1 = ObjectFinder.findObjectByChain(%2, \"%3\")\n")
                       .arg(objName, rootObjectId(), command.mObjectChainName.join("->"));
             objectPrinted.insert(objName);
         }
@@ -68,8 +68,8 @@ QString EventFilter::output() const
                       .arg(lastPosition.x())
                       .arg(lastPosition.y());
         }
-        stream << QString("waitForRendering(%1)\n")
-                  .arg(objName);
+        // stream << QString("waitForRendering(%1)\n")
+        //           .arg(objName);
     };
 
     auto printKey = [&](const Command& command) {

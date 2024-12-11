@@ -64,9 +64,8 @@ endforeach()
 qt_add_qml_module(QmlTestRecorder
     URI QmlTestRecorder
     VERSION 1.0
-    RESOURCE_PREFIX /QmlTestRecorder
+    RESOURCE_PREFIX /qml
     OUTPUT_DIRECTORY QmlTestRecorder
-    NO_CACHEGEN
     DEPENDENCIES
         QtQuick
     SOURCES
@@ -87,3 +86,5 @@ target_link_libraries(QmlTestRecorder
 )
 
 target_sources(QmlTestRecorder PRIVATE ${qml_test_recorder_CPP_FILES} ${qml_test_recorder_H_FILES})
+
+add_subdirectory(example/simple)
