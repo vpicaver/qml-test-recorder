@@ -27,11 +27,6 @@ qt_add_qml_module(simplemodule
         SimpleWindow.qml
 )
 
-# qt_add_resources(simple "qmls"
-#     PREFIX "/qmls"
-#     FILES
-# )
-
 # Link Qt libraries
 target_link_libraries(qml-test-recorder-simple PRIVATE Qt6::Quick)
 

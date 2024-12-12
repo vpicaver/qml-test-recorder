@@ -60,17 +60,6 @@ Window {
     }
 
 
-
-//    TestCase {
-//        name: "FieldEditTest"
-//        when: windowShown
-
-//        function test_record() {
-//            console.log("Recording, this will wait for a long time");
-//            wait(10000000);
-//        }
-//    }
-
     ColumnLayout {
         anchors.fill: parent
         anchors.margins: 10
@@ -96,7 +85,7 @@ Window {
                     if(filterId.rootObject != null) {
                         filterId.rootObject = null
                     } else {
-                        filterId.rootObject = rootItem
+                        filterId.rootObject = testcaseWindowId.rootItem
                     }
                 }
             }
@@ -123,7 +112,6 @@ Window {
             Layout.fillWidth: true
             TextArea {
                 id: textAreaId
-//                anchors.fill: parent
                 selectByMouse: true
                 selectByKeyboard: true
                 readOnly: true

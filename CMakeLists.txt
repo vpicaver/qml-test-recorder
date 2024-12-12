@@ -65,9 +65,10 @@ qt_add_qml_module(QmlTestRecorder
     URI QmlTestRecorder
     VERSION 1.0
     RESOURCE_PREFIX /qml
-    OUTPUT_DIRECTORY QmlTestRecorder
+    OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/QmlTestRecorder
     DEPENDENCIES
         QtQuick
+        QtQuick.Controls
     SOURCES
         ${qml_test_recorder_RELATIVE_CPP_FILES}
         ${qml_test_recorder_RELATIVE_H_FILES}
