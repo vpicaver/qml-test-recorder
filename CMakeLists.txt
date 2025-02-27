@@ -80,10 +80,10 @@ qt_add_qml_module(QmlTestRecorder
 target_include_directories(QmlTestRecorder PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
 target_link_libraries(QmlTestRecorder
     PUBLIC
-        Qt::Core
-        Qt::Gui
-        Qt::Quick
-        Qt::Test
+        Qt6::Core
+        Qt6::Gui
+        Qt6::Quick
+        Qt6::Test
 )
 
 target_sources(QmlTestRecorder PRIVATE ${qml_test_recorder_CPP_FILES} ${qml_test_recorder_H_FILES})

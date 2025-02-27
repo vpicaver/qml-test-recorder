@@ -50,8 +50,8 @@ qt_add_resources(qml-test-recorder-test_simple "qmls"
 
 target_link_libraries(qml-test-recorder-test_simple
     PRIVATE
-    Qt::Test
-    Qt::Quick
-    Qt::Qml
-    Qt::QuickTest
+    Qt6::Test
+    Qt6::Quick
+    Qt6::Qml
+    Qt6::QuickTest
 )
