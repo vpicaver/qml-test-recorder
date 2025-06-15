@@ -29,7 +29,7 @@ set(CMAKE_AUTOMOC ON)
 #     EXPORT_FILE_NAME QmlTestRecorder-export.h
 # )
 
-qt_add_library(QmlTestRecorder SHARED)
+# qt_add_library(QmlTestRecorder SHARED)
 
 # Collect source files
 file(GLOB qml_test_recorder_CPP_FILES "src/*.cpp")
@@ -64,6 +64,7 @@ endforeach()
 qt_add_qml_module(QmlTestRecorder
     URI QmlTestRecorder
     VERSION 1.0
+    STATIC
     RESOURCE_PREFIX /qml
     OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/QmlTestRecorder
     DEPENDENCIES
