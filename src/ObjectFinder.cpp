@@ -16,6 +16,7 @@ QQuickItem *ObjectFinder::findObjectByChain(QQuickItem *parent, const QString &c
     QStringList chain = chainName.split(seperator);
 
     auto findChildren = [](QObject* parent, const QString& childName) {
+
         QSet<QObject*> items;
 
         auto addItem = [&items](QObject* object, const QString& matchName) {
@@ -32,7 +33,7 @@ QQuickItem *ObjectFinder::findObjectByChain(QQuickItem *parent, const QString &c
             QSet<QObject*> children;
 
             if(dynamic_cast<QQuickItem*>(parent)) {
-                auto childItems = static_cast<QQuickItem*>(parent)->childItems();
+                const auto childItems = static_cast<QQuickItem*>(parent)->childItems();
                 for(auto childItem : childItems) {
                     children.insert(childItem);
                 }
@@ -56,9 +57,10 @@ QQuickItem *ObjectFinder::findObjectByChain(QQuickItem *parent, const QString &c
         return items;
     };
 
-    auto candidates = findChildren(parent, chain.last());
+    const auto candidates = findChildren(parent, chain.last());
 
     for(auto candidate :  candidates) {
+        //qDebug() << "Canditate:" << candidate << "To chain:" << toChain(candidate) << (chain == toChain(candidate));
         if(chain == toChain(candidate) && dynamic_cast<QQuickItem*>(candidate)) {
             return static_cast<QQuickItem*>(candidate);
         }
