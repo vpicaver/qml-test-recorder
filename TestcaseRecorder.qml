@@ -11,10 +11,10 @@ Window {
     property Item rootItem;
     property alias rootItemId: filterId.rootObjectId
 
-    width: 1000
-    height: 800
-    x: 500
-    y: 100
+    width: 200
+    height: 200
+    x: 1000
+    y: 1000
     visible: true
 
     onXChanged: windowSettings.setValue("x", x);
@@ -29,10 +29,10 @@ Window {
 
     Component.onCompleted: {
         // Restore the window position and size
-        x = windowSettings.value("x", 500);
-        y = windowSettings.value("y", 100);
-        width = windowSettings.value("width", 1000);
-        height = windowSettings.value("height", 800);
+        x = windowSettings.value("x", 1000);
+        y = windowSettings.value("y", 1000);
+        width = windowSettings.value("width", 400);
+        height = windowSettings.value("height", 200);
     }
 
     // Settings object to store window properties
