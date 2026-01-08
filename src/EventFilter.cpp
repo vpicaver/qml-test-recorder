@@ -83,7 +83,7 @@ QString EventFilter::output() const
         } else {
             stream << QString("keyClick(%1, %2) //%3")
                       .arg(first->key())
-                      .arg(first->modifiers())
+                      .arg((int)first->modifiers())
                       .arg(QKeySequence(first->key(), first->modifiers()).toString());
         }
     };
