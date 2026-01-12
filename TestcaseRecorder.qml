@@ -59,6 +59,11 @@ Window {
         animationEnabled: true
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: palette.window
+        SystemPalette { id: palette; colorGroup: SystemPalette.Active }
+    }
 
     ColumnLayout {
         anchors.fill: parent
