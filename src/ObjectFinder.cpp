@@ -98,3 +98,8 @@ QString ObjectFinder::toChainString(const QObject *object)
 {
     return toChainString(toChain(object));
 }
+
+QString ObjectFinder::chainOf(QQuickItem *item) const
+{
+    return toChainString(item);
+}

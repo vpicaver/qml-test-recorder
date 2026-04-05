@@ -14,6 +14,7 @@ public:
     explicit ObjectFinder(QObject *parent = nullptr);
 
     Q_INVOKABLE QQuickItem* findObjectByChain(QQuickItem* parent, const QString& chainName) const;
+    Q_INVOKABLE QString chainOf(QQuickItem* item) const;
 
     static QStringList toChain(const QObject *object);
     static QString toChainString(const QStringList& chain);
